@@ -1,15 +1,25 @@
 import React from 'react';
+import {
+  HeaderWrapper,
+  HeaderContainer,
+  LeftHalf,
+  Logo,
+  RightHalf,
+} from './header.styles';
+import { Navigation } from './navigation/navigation';
 
 // ... Continue styling the rest of your components
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Container>
-        {/* Replace class names with styled components */}
-        <Logo>{/* Logo content */}</Logo>
-        {/* ... Continue with other header components */}
-      </Container>
+      <HeaderContainer>
+        <Logo>
+          <LeftHalf>WEB</LeftHalf>
+          <RightHalf>STUDIO</RightHalf>
+        </Logo>
+        <Navigation />
+      </HeaderContainer>
     </HeaderWrapper>
   );
 };
