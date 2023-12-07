@@ -18,7 +18,7 @@ const Header = () => {
           <LeftHalf>WEB</LeftHalf>
           <RightHalf>STUDIO</RightHalf>
         </Logo>
-        <Navigation />
+        {/* <Navigation /> */}
       </HeaderContainer>
     </HeaderWrapper>
   );
