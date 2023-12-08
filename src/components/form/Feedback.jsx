@@ -1,3 +1,5 @@
+import { firestore } from 'components/firebase';
+import { addDoc, collection } from 'firebase/firestore';
 import { useFormik } from 'formik';
 
 export const FeedbackForm = ({ isOpen, onClose }) => {
@@ -11,12 +13,27 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
       sendDate: new Date(),
     },
 
-    onSubmit: values => {
-      // Логіка обробки поданих даних
-      console.log(values);
-      // Очистіть значення полів після відправлення форми
-      formik.resetForm();
-      onClose(); // Закриття форми після відправки
+    onSubmit: async values => {
+      try {
+        console.log(`values \n `, values);
+        // Додаємо дані до Firestore
+        const docRef = await addDoc(collection(firestore, 'feedback'), {
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          comment: values.comment,
+          sendDate: values.sendDate,
+        });
+        console.log('Document written with ID: ', docRef.id);
+
+        // Очищаємо значення полів після відправлення форми
+        formik.resetForm();
+
+        // Закриваємо форму
+        onClose();
+      } catch (error) {
+        console.error('Error adding data to Firestore:', error);
+      }
     },
   });
 
