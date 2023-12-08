@@ -6,6 +6,7 @@ import {
   NavigationList,
   PageNavigation,
 } from './navigation.styled';
+import { Contacts } from '../contacts/Contacts';
 
 export const Navigation = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -30,19 +31,22 @@ export const Navigation = () => {
           </MobMenuIcon>
         </MobMenuBtn>
       ) : (
-        <PageNavigation>
-          <NavigationList>
-            <li>
-              <NavigationItem>Studio</NavigationItem>
-            </li>
-            <li>
-              <NavigationItem>Portfolio</NavigationItem>
-            </li>
-            <li>
-              <NavigationItem>Contacts</NavigationItem>
-            </li>
-          </NavigationList>
-        </PageNavigation>
+        <>
+          <PageNavigation>
+            <NavigationList>
+              <li>
+                <NavigationItem>Studio</NavigationItem>
+              </li>
+              <li>
+                <NavigationItem>Portfolio</NavigationItem>
+              </li>
+              <li>
+                <NavigationItem>Contacts</NavigationItem>
+              </li>
+            </NavigationList>
+          </PageNavigation>
+          <Contacts />
+        </>
       )}
     </>
   );

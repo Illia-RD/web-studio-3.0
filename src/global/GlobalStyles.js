@@ -6,8 +6,10 @@ const GlobalStyles = createGlobalStyle`
 
   /* Додаткові глобальні стилі тут */
 body {
+  min-width:428px;
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
+  
 }
 h1,
 h2,
@@ -32,6 +34,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 `;
 
 export default GlobalStyles;
