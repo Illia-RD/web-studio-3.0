@@ -44,49 +44,51 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
   }
 
   return (
-    <FormContainer>
-      <CloseButton onClick={onClose}>Close Form</CloseButton>
-      <Form onSubmit={formik.handleSubmit}>
-        {/* Поля форми */}
-        <label htmlFor="name"> Name:</label>
-        <input
-          required
-          type="text"
-          id="name"
-          name="name"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
-        <label htmlFor="email"> E-mail:</label>
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
+    <Overlay>
+      <FormContainer>
+        <CloseButton onClick={onClose}>Close Form</CloseButton>
+        <Form onSubmit={formik.handleSubmit}>
+          {/* Поля форми */}
+          <label htmlFor="name"> Name:</label>
+          <input
+            required
+            type="text"
+            id="name"
+            name="name"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+          />
+          <label htmlFor="email"> E-mail:</label>
+          <input
+            required
+            type="email"
+            id="email"
+            name="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
 
-        <label htmlFor="phone"> Phone Number:</label>
-        <input
-          required
-          type="text"
-          id="phone"
-          name="phone"
-          onChange={formik.handleChange}
-          value={formik.values.phone}
-        />
-        <label htmlFor="comment"> Comment:</label>
-        <input
-          type="comment"
-          id="comment"
-          name="comment"
-          onChange={formik.handleChange}
-          value={formik.values.comment}
-        />
-        {/* Кнопка відправки форми */}
-        <button type="submit">Submit</button>
-      </Form>
-    </FormContainer>
+          <label htmlFor="phone"> Phone Number:</label>
+          <input
+            required
+            type="text"
+            id="phone"
+            name="phone"
+            onChange={formik.handleChange}
+            value={formik.values.phone}
+          />
+          <label htmlFor="comment"> Comment:</label>
+          <input
+            type="comment"
+            id="comment"
+            name="comment"
+            onChange={formik.handleChange}
+            value={formik.values.comment}
+          />
+          {/* Кнопка відправки форми */}
+          <button type="submit">Submit</button>
+        </Form>
+      </FormContainer>
+    </Overlay>
   );
 };
