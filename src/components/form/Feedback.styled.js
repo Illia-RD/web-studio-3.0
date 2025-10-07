@@ -15,18 +15,17 @@ export const FormContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${colors.light};
-  padding: 20px;
+  padding: 24px 16px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 400px;
   z-index: 1000;
   @media ${media.tablet} {
-    padding: 30px;
+    padding: 24px;
     max-width: 500px;
   }
   @media ${media.desktop} {
-    padding: 40px;
     max-width: 600px;
   }
 `;
@@ -44,11 +43,41 @@ export const CloseButton = styled.button`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  @media ${media.tablet} {
-    gap: 20px;
+  row-gap: 8px;
+  /* @media ${media.tablet} {
+    row-gap: 20px;
   }
   @media ${media.desktop} {
     gap: 25px;
+  } */
+`;
+export const Label = styled.label`
+  font-weight: bold;
+  margin-bottom: -4px;
+  color: ${colors.textPrimary};
+`;
+export const Input = styled.input`
+  padding: 12px 16px;
+  border: 1px solid ${colors.border};
+  border-radius: 4px;
+  font-size: 1rem;
+  color: ${colors.textPrimary};
+  &:focus {
+    outline: none;
+    border-color: ${colors.primary};
   }
+`;
+export const TextArea = styled.textarea`
+  padding: 12px 16px;
+  border: 1px solid ${colors.border};
+  border-radius: 4px;
+  font-size: 1rem;
+  color: ${colors.textPrimary};
+  &:focus {
+    outline: none;
+    border-color: ${colors.primary};
+  }
+`;
+export const SubmitButton = styled.button`
+  margin-top: 16px;
 `;

@@ -1,7 +1,16 @@
 import { firestore } from 'components/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { useFormik } from 'formik';
-import { Overlay, FormContainer, CloseButton, Form } from './Feedback.styled';
+import {
+  Overlay,
+  FormContainer,
+  CloseButton,
+  Form,
+  Label,
+  Input,
+  TextArea,
+  SubmitButton,
+} from './Feedback.styled';
 
 export const FeedbackForm = ({ isOpen, onClose }) => {
   const formik = useFormik({
@@ -49,8 +58,8 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
         <CloseButton onClick={onClose}>Close Form</CloseButton>
         <Form onSubmit={formik.handleSubmit}>
           {/* Поля форми */}
-          <label htmlFor="name"> Name:</label>
-          <input
+          <Label htmlFor="name"> Name:</Label>
+          <Input
             required
             type="text"
             id="name"
@@ -58,8 +67,8 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
             onChange={formik.handleChange}
             value={formik.values.name}
           />
-          <label htmlFor="email"> E-mail:</label>
-          <input
+          <Label htmlFor="email"> E-mail:</Label>
+          <Input
             required
             type="email"
             id="email"
@@ -68,8 +77,8 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
             value={formik.values.email}
           />
 
-          <label htmlFor="phone"> Phone Number:</label>
-          <input
+          <Label htmlFor="phone"> Phone Number:</Label>
+          <Input
             required
             type="text"
             id="phone"
@@ -77,16 +86,15 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
             onChange={formik.handleChange}
             value={formik.values.phone}
           />
-          <label htmlFor="comment"> Comment:</label>
-          <input
-            type="comment"
+          <Label htmlFor="comment"> Comment:</Label>
+          <TextArea
             id="comment"
             name="comment"
             onChange={formik.handleChange}
             value={formik.values.comment}
           />
           {/* Кнопка відправки форми */}
-          <button type="submit">Submit</button>
+          <SubmitButton type="submit">Submit</SubmitButton>
         </Form>
       </FormContainer>
     </Overlay>
