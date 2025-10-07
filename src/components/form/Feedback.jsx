@@ -1,6 +1,7 @@
 import { firestore } from 'components/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { useFormik } from 'formik';
+import { Overlay, FormContainer, CloseButton, Form } from './Feedback.styled';
 
 export const FeedbackForm = ({ isOpen, onClose }) => {
   const formik = useFormik({
@@ -43,9 +44,9 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div>
-      <button onClick={onClose}>Close Form</button>
-      <form onSubmit={formik.handleSubmit}>
+    <FormContainer>
+      <CloseButton onClick={onClose}>Close Form</CloseButton>
+      <Form onSubmit={formik.handleSubmit}>
         {/* Поля форми */}
         <label htmlFor="name"> Name:</label>
         <input
@@ -85,7 +86,7 @@ export const FeedbackForm = ({ isOpen, onClose }) => {
         />
         {/* Кнопка відправки форми */}
         <button type="submit">Submit</button>
-      </form>
-    </div>
+      </Form>
+    </FormContainer>
   );
 };
